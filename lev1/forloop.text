@@ -1,0 +1,48 @@
+package main
+
+import "fmt"
+
+func main() {
+
+	//simple iteration
+	// for i := 0; i < 10; i++ {
+	// 	fmt.Println(i, "hello")
+	// }
+
+	// //iterate over collection
+	// a, b := 10, 20
+	// fmt.Println(a, b)
+	// numbers := []int{1, 3, 4, 5, 6, 6, 7, 3, 43, 2}
+
+	// for index, val := range numbers {
+	// 	fmt.Printf("index %v and valur is %v", index, val)
+	// }
+
+	//beak and continue
+
+	// for i := 0; i < 10; i++ {
+	// 	if i%2 == 0 {
+	// 		continue
+	// 	}
+	// 	fmt.Println(i)
+	// }
+
+	// for i := range 10 {
+	// 	fmt.Println(i, "name")
+	// }
+
+	//for as while
+	ind := 1
+	// for ind < 10 {
+	// 	fmt.Println(ind, "hello")
+	// 	ind++
+	// }
+
+	for {
+		fmt.Println(ind)
+		if ind == 12 {
+			break
+		}
+		ind++
+	}
+}

@@ -1,0 +1,86 @@
+package main
+
+import (
+	"fmt"
+	"maps"
+)
+
+func main() {
+	//map is a built in data str key value pair
+	//each key shuld be unique
+	//unorder store
+
+	// var makeMap map[string]string = map[string]string{
+	// 	"name": "deepak",
+	// 	"vill": "noida",
+	// }
+	// makeMap["roll"] = "78"
+	// makeMap["gendar"] = "M"
+	// fmt.Println(makeMap)
+
+	// fmt.Println(len(makeMap))
+	// for i, j := range makeMap {
+	// 	fmt.Printf("key is %v and value is %v\n", i, j)
+
+	// }
+
+	// map2 := map[string]string{}
+
+	// map2["x"] = "x"
+	// map2["name"] = "deepK"
+	// fmt.Println(map2)
+
+	// A, B := map2["name"]
+
+	// fmt.Println(A, B)
+
+	createMap := make(map[string]string)
+	createMap["name"] = "rahul"
+	copyMap := make(map[string]string)
+	maps.Copy(copyMap, createMap)
+	fmt.Println(createMap)
+	copyMap["vill"] = "noida"
+	fmt.Println(maps.Equal(createMap, copyMap))
+
+	nillMap := make(map[string]int)
+	nillMap["x"] = 10
+	nillMap["y"] = 14
+	if len(nillMap) == 0 {
+		fmt.Println("nillMap initialize with null vale ")
+	} else {
+		fmt.Println("nillMap is not nill")
+	}
+	for k, v := range nillMap {
+		fmt.Println(k, v)
+
+	}
+
+	fmt.Println(nillMap == nil, nillMap)
+	//nested map
+	nestadMap := make(map[string]map[string]string)
+	nestadMap["deepak"] = map[string]string{
+		"roll":   "1666",
+		"vill":   "noida",
+		"gendar": "M",
+	}
+	nestadMap["rahul"] = map[string]string{
+		"roll":   "45",
+		"vill":   "noida",
+		"gendar": "M",
+	}
+	nestadMap["manoj"] = map[string]string{
+		"roll":   "1",
+		"vill":   "delhi",
+		"gendar": "M",
+	}
+
+	for k, v := range nestadMap {
+
+		fmt.Println(k,":")
+		for k1, v1 := range v {
+			fmt.Println(k1, v1)
+		}
+
+	}
+
+}

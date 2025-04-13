@@ -1,0 +1,34 @@
+package main
+
+import "fmt"
+
+/* *
+
+1.  Recover is builtin function to take regein controll over panic it use for regaing controll over panicking go rutine
+2.  recover function only usefull in differ to privent abrupt termination
+3.  recover() will return that we pass in panic() argument once panic occer if not than it will return nill
+4.  recover occer in same function when panic occer and alwase use with defer
+
+**/
+
+func main() {
+
+	process(-10)
+	fmt.Println("process function terminated perfectly")
+
+}
+
+func process(number int) {
+	//heandle painic
+	defer func() {
+		recover := recover()
+		if recover != nil {
+			fmt.Println("recover after panic exicuted ", recover)
+		}
+	}()
+	if number <= 0 {
+		panic("number shuld be greter than 0")
+	}
+	fmt.Println("function running proper ")
+
+}

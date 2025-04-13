@@ -1,0 +1,23 @@
+package main
+
+import "fmt"
+
+func main() {
+	var gues int
+	target := 11
+
+	for {
+		fmt.Println("Welcome to the game!")
+		fmt.Print("Enter your guess: ")
+		fmt.Scan(&gues)
+
+		if gues == target {
+			fmt.Println("You win the game!")
+			break // Exit the loop when the player guesses correctly
+		} else if gues > target {
+			fmt.Println("Try to choose a bit smaller.")
+		} else {
+			fmt.Println("Try to choose a bit gratter.")
+		}
+	}
+}

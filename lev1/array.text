@@ -1,0 +1,66 @@
+package main
+
+import "fmt"
+
+func main() {
+	// var num [5]int64
+	// fmt.Println(num)
+	// frouts := [4]string{"BANANA"}
+	// for i, v := range frouts {
+	// 	fmt.Println(i, v)
+	// }
+
+	//copied arry not change the value of orignal array
+
+	// orignal := [5]int{1, 2, 3, 5, 6}
+
+	// copyArray := orignal
+	// copyArray[2] = 200
+	// fmt.Println(orignal, copyArray)
+
+	// for _, v := range copyArray {
+	// 	fmt.Println(v)
+	// }
+
+	// for i := 0; i < len(orignal); i++ {
+	// 	fmt.Print(orignal[i], " ")
+	// }
+	// fmt.Println()
+	// a, b := someFunction()
+	// fmt.Println(a, b)
+
+	//compare opertor
+	// arr1 := [3]int{1, 2, 3}
+
+	// arr2 := [3]int{1, 2, 3}
+
+	// fmt.Println("arr1 is equal to arr2", arr1 == arr2)
+
+	//multi dimention arry
+
+	// matrix := [3][3]int{
+	// 	{1, 2, 3},
+	// 	{4, 5, 6},
+	// 	{7, 8, 9},
+	// }
+
+	// fmt.Println(matrix)
+
+	//pointer * adderss &  : a pointer point to the adderss and address store the actual value
+
+	orignalArr := [3]int{
+		100, 200, 300,
+	}
+
+	var copyArr *[3]int
+	copyArr = &orignalArr
+
+	copyArr[2] = 500
+
+	fmt.Println(copyArr, orignalArr)
+
+}
+
+func someFunction() (int, int) {
+	return 1, 2
+}

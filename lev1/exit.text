@@ -1,0 +1,29 @@
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+/*
+*
+1. os.exit use for immidiate terminate without handling deffer and ..
+2. use case -> incounter exit the programm before occer huge error tht can't be solve
+3. exit functionn take intige as argument 0 mins ok,apart for it mins programm has not been exicuted proprealy
+4. os.Exit()  it not trigger differ
+
+*
+*/
+func main() {
+	defer func() {
+		fmt.Println("differ exicuted")
+		res := recover()
+		fmt.Println("recover", res)
+	}()
+	defer fmt.Println(" differ trigred")
+	fmt.Println("before exit")
+	os.Exit(1)
+
+	fmt.Println("after exit")
+
+}

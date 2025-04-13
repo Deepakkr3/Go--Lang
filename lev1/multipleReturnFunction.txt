@@ -1,0 +1,37 @@
+package main
+
+import "errors"
+
+//more than one return value
+func main() {
+
+	//func funcName(a typea,b typeb ...) (typeA,typeB,...){}
+
+	a, b, c, d := mathOperation(10.0, 3.0)
+
+	println(a, b, c, d)
+
+	val,err:=forError(10,10);
+	if(err!=nil){
+		println(err.Error())
+	}else{
+		println("there is no error ",val)
+	}
+
+	
+
+}
+
+func mathOperation(a int64, b int64) (int64, int64, int64, int64) {
+	return a + b, a - b, a * b, a / b
+}
+
+func forError(a int,b int )(string,error){
+	if(a>b){
+		return `a is bigger than b`,nil
+	}else if(a<b){
+		return `a is smaller than b}`,nil
+	}else{
+		return "",errors.New("error occer in programm")
+	}
+}
