@@ -1,0 +1,44 @@
+package main
+
+import "fmt"
+
+/**
+  1. closure is concept that allow to use variable that is decleared outside of function bodey
+  2. it use laxical scoping to accsess the variable , inner function still can acess the variable even outer function exicuted
+  3. value persist between call
+  4. closer manage state among inner function call apart from the same function call
+  5. closer make effective use of memory that is commmon in multipe function call
+  6. it awoid side effect
+**/
+
+func main() {
+
+	adderFun := adder()
+	fmt.Println(adderFun())
+	fmt.Println(adderFun())
+	fmt.Println(adderFun())
+
+	substrac := func() func(int) int {
+		n := 100
+		return func(a int) int {
+			n -= a
+			return n
+		}
+	}()
+
+	fmt.Println(substrac(10))
+	fmt.Println(substrac(10))
+	fmt.Println(substrac(5))
+
+}
+
+func adder() func() int {
+	x := 0
+	return func() int {
+		fmt.Println("incrimenting x +1", x)
+		x++
+
+		return x
+
+	}
+}

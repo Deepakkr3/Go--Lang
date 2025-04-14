@@ -1,0 +1,35 @@
+package main
+
+import "fmt"
+
+/**
+1. pointer is variable that store memory adderss of another variable
+2. pointer have type
+3. pointer allow to modify variable indirectly
+4. we can pass large datatype in function by pointer an use memory effectuve
+5. var ptr *int -> variable ptr will store memory addess of intiger type variable
+6. the pointer that not refring any memory adderss it will give nil value
+7. pointer limited to refreancing and de refrincing in go it not suport airthmatic like c++
+
+**/
+
+func main() {
+	var ptr *int
+	fmt.Println(ptr) // the pointer that not refring any memory adderss it will give nil value
+	a := 10
+	ptr = &a //pointer refrencing
+	fmt.Println(a)
+	fmt.Println(&a)
+	fmt.Println(ptr)  //it will give  memory address
+	fmt.Println(*ptr) //it will give  value : 	 derefrence
+	modifyValue(ptr)
+	fmt.Println(ptr)
+	
+	fmt.Println(*ptr)
+
+}
+
+func modifyValue(ptr *int) {
+	*ptr = 20
+
+}
