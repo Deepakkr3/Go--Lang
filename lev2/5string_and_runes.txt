@@ -1,0 +1,28 @@
+package main
+
+import (
+	"fmt"
+)
+
+/*
+*
+1. string are immutable
+2. rune is an integer value that is store unicode code that can convert as character int32 ocopy 4Byte memory
+3.rune is use to repersent indivisul character to an string it healp to working with unicode 
+*
+*/
+func main() {
+	str := "hello go string "
+	fmt.Println("Hello World", str)
+	fmt.Println("length of str", len(str))
+	fmt.Println(string(str[0])) //asccii
+	for i, ch := range str {
+		fmt.Println(i, string(ch))
+	}
+
+	//rune -> use to store unicode of character 
+
+	var a rune='A'
+	fmt.Println(string(a))
+
+}

@@ -1,0 +1,25 @@
+package main
+
+import "fmt"
+
+/*
+%V print default formate
+%#v print go syntex formate
+%T print type of value
+%% print % sign
+
+*/
+func main() {
+
+	// num := "Hello world"
+	// fmt.Printf("%v\n", num)
+	// fmt.Printf("%#v\n", num)
+	// fmt.Printf("%T\n", num)
+	// fmt.Printf("%%\n",num)
+
+
+	x:=12
+
+	fmt.Printf("%b\n",x)
+	fmt.Printf("%+d\n",x)
+}
