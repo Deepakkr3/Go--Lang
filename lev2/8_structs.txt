@@ -1,0 +1,64 @@
+package main
+
+import "fmt"
+
+/*
+1. struct is composite data type it group multiple datatype in same name like class in OOP but lighwaight and don't support ingaritance
+2. in go there is no class we use struct and function associate with structs methodd
+3. struct and associate method shuld be decleare outside of main function
+4. in struct we can not configure associate methodd inside the struct blocka like other OOP
+5. we shuld use pointer reciver incted of value reciver in order to modification
+6. go support embading structs anonimos fild will be acessable at parant ddirectry but manualy embaded fiel cna be acessable by nesting
+
+
+
+
+
+
+*/
+
+type Person struct {
+	firstName string
+	lastName  string
+	age       int
+	//embading structs
+	address Address
+	//anonimos embading
+	Phone
+}
+type Address struct {
+	city  string
+	state string
+}
+type Phone struct {
+	mobNumber string
+}
+
+func (p Person) about() string {
+	formateString := fmt.Sprintf("first name is %s and last name is %s and age is  %d belongs to %s", p.firstName, p.lastName, p.age, p.address.city)
+	return formateString
+}
+func (p *Person) modifyAge() {
+	p.age++
+}
+func main() {
+
+	p := Person{
+		firstName: "rahul",
+		lastName:  "singh",
+		age:       23,
+		address: Address{
+			city:  "delhi",
+			state: "delhi",
+		},
+		Phone: Phone{
+			mobNumber: "9999999999",
+		},
+	}
+	fmt.Println(p.about())
+	//directly accesable
+	fmt.Println(p.age, p.mobNumber)
+	p.modifyAge()
+	fmt.Println(p.age)
+
+}

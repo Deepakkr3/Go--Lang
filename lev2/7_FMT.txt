@@ -1,0 +1,61 @@
+package main
+
+import "fmt"
+
+/*
+it allow to print value
+Printing function :Print() Println() Printf()
+Formating functions :Sprint() Sprintf() Sprintln()
+scanning function :Scan() Scanf() Scanln()
+error formating : Errorf()
+*/
+func main() {
+
+	fmt.Println("Helloe ", 123)
+
+	//formating function
+	val := 13888
+	x := fmt.Sprint("hyy i am deepak", "kumar from xyz", 12255)
+	fmt.Println(x)
+
+	//add defaout space while con canating
+	y := fmt.Sprintln("hyy i am deepak", "kumar from xyz", 12255)
+	fmt.Println(y)
+
+	z := fmt.Sprintf("i am deepak kumar %v sss", val)
+	fmt.Println(z)
+
+	//Scaning scan  function you can take multiple imput
+	// var name string
+	// var age int
+	// fmt.Scan(&name,&age)
+	// fmt.Println(name ,age)
+
+	//Scaning scanln function you can take only one intput at time
+	// var name string
+	// var  age int
+	// fmt.Scanln(&name ,&age)
+	// fmt.Println(name,age)
+
+	//scanf expact input in ac your formate
+
+	//  var name string
+	// var  age int
+	// fmt.Scanf( "%s %d",&name ,&age)
+	// fmt.Println(name,age)
+
+	//eror formating
+	err := checkeAge(15)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+}
+
+func checkeAge(age int) error {
+
+	if age < 18 {
+		return fmt.Errorf("age  %v is less than 18", age)
+	}
+	return nil
+}
