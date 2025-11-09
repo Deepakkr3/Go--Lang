@@ -1,0 +1,48 @@
+package main
+
+import "fmt"
+
+/*
+1. struct embading allow inharite proprity and behaviour from one struct type to another
+2. method can be over ride
+
+*/
+
+type Student struct {
+	name string
+	age  int
+	College
+}
+
+type College struct {
+	CollegeName string
+	location    string
+}
+
+func (student Student) printInfoStudent() {
+	println(student.name, student.age, student.CollegeName, student.location)
+
+}
+func (std Student) printInfoCollege(){
+	fmt.Println("from over wride method ..")
+}
+
+func (college College) printInfoCollege() {
+	println(college.CollegeName, college.location)
+}
+
+func main() {
+
+	student := Student{
+		name: "deepak",
+		age:  2,
+		College: College{
+			CollegeName: "AOT",
+			location:    "kolkata",
+		},
+	}
+
+	student.printInfoStudent()
+	student.printInfoCollege()
+
+}

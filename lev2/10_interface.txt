@@ -1,0 +1,77 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+/*
+1. interface spacify behaviour signature that struct must have it brings
+2. interface brings decopuling ,polymorphism  without relying explicet inharitance
+3. once we have implemented all method of interface of struct than we can pass type of struct as interface
+4 interface is set of method that have to impliment in struct in order to pass as type of interface as structs
+5. we can take interface if we want to accept any type of data  in function
+
+
+
+*/
+
+type geometry interface {
+	area() float64
+	perim() float64
+}
+type ract struct {
+	width, height float64
+}
+type circle struct {
+	radius float64
+}
+
+type ract1 struct {
+	width, height float64
+}
+
+func (r ract1) area() float64 {
+	return r.height * r.width
+}
+
+func (r ract) area() float64 {
+	return r.height * r.width
+}
+func (r ract) perim() float64 {
+	return 2*r.height + 2*r.width
+}
+func (c circle) area() float64 {
+	return math.Pi * c.radius * c.radius
+}
+
+func (c circle) perim() float64 {
+	return 2 * math.Pi * c.radius
+}
+
+func mesure(g geometry) {
+
+	fmt.Println(g.area())
+
+	fmt.Println(g.perim())
+}
+  
+
+func variadic(i ...interface{}){
+	for _,v:=range i{
+		fmt.Println(v)
+	}
+}
+func main() {
+	fmt.Println("hello is working ..")
+	ractangle := ract{10, 20}
+	circle := circle{10}
+	// ract1:=ract1{10,20}
+	mesure(ractangle)
+
+	mesure(circle)
+	// mesure(ract1)
+
+	variadic(1,3,4.5,true,"hello")
+
+}

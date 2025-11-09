@@ -1,0 +1,95 @@
+package main
+
+import "fmt"
+
+/*
+1. genric create with type keyword with type paramiter
+
+
+
+*/
+
+func swap[T any](a T, b T) (T, T) {
+	return b, a
+
+}
+
+type Stack[T any] struct {
+	element []T
+}
+
+func (stk *Stack[T]) push(el T) {
+	stk.element = append(stk.element, el)
+}
+
+func (stk *Stack[T]) pop() (T, bool) {
+	if len(stk.element) == 0 {
+		var zeroValue T
+		return zeroValue, false
+	}
+	toReturn := stk.element[len(stk.element)-1]
+	stk.element = stk.element[:len(stk.element)-1]
+	return toReturn, true
+}
+
+func (stk *Stack[T]) empty() bool {
+	return len(stk.element) == 0
+}
+func (stk *Stack[T]) printAll() {
+	for _, el := range stk.element {
+		fmt.Print(el, " ")
+	}
+	fmt.Println()
+}
+
+func main() {
+
+	a, b := swap(1, 2)
+	println(a, b)
+	stk := Stack[int]{}
+	stk.push(1)
+	stk.push(2)
+	stk.push(3)
+
+	stk.printAll()
+
+	fmt.Println(stk.pop())
+	fmt.Println(stk.pop())
+	fmt.Println(stk.pop())
+	fmt.Println(stk.pop())
+	fmt.Println(stk)
+	fmt.Println(stk.empty())
+	//queue
+
+	quue := Queue[int]{}
+	quue.enqueue(1)
+	quue.enqueue(2)
+	quue.enqueue(3)
+	fmt.Println(quue.dequeue())
+	fmt.Println(quue.dequeue())
+	fmt.Println(quue.dequeue())
+
+}
+
+type Queue[T any] struct {
+	element []T
+}
+
+func (q *Queue[T]) enqueue(el T) {
+	q.element = append(q.element, el)
+}
+
+func (q *Queue[T]) dequeue() (T, bool) {
+
+	if len(q.element) == 0 {
+		var zeroValue T
+		return zeroValue, false
+	}
+	toreturn := q.element[0]
+	q.element = q.element[1:]
+	return toreturn, true
+}
+
+func (q *Queue[T]) empty() bool {
+	return len(q.element) == 0
+}

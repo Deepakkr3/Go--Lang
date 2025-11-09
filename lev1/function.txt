@@ -1,0 +1,63 @@
+package main
+
+import "fmt"
+
+//function in Go lang ..
+//function is a first class citizen mense it can use by wide range of operation 
+func main() {
+
+	//func functionName(parameters)(use if returning multiple value )/return type if only one {
+	//}
+	//anonimos function
+	func() {
+		fmt.Println("anonimos function")
+	}()
+	//function as variable
+	greet := func() {
+		fmt.Println("Hello World")
+	}
+	greet()
+
+	applyOperation := applyOperation(10, 13, add)
+	fmt.Println(applyOperation)
+
+	//return function
+
+	mul := createmultiplyer(10)
+
+	mulres:=mul(12)
+	fmt.Println(mulres)
+
+
+
+}
+
+func add(a int, b int) int {
+	return a * b
+
+}
+
+//function that is taking function as argument
+
+func applyOperation(x int, y int, operation func(int, int) int) int {
+	return operation(x, y)
+}
+
+//returns a funtion
+
+func createmultiplyer(x int) func(int) int {
+	return func(i int) int {
+		return x * i
+	}
+
+}
+
+//multiplyer
+
+func mul(i int) func(int) int {
+
+	return func(x int) int {
+		return x * i
+	}
+
+}

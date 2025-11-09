@@ -1,0 +1,35 @@
+package main
+
+import "fmt"
+
+/**1. differ is mechanism in function that stop exicution of a function untill surrounding function gut exicute 
+   2. go rutine function that is running in background it is not part of mainn thread
+   3. differ function exicute after that sorunding function exicutr / return / reach to end of that bodey/ panic in go rutine
+   4. differ funtion exicute LIFO last differ will be exicute firest of differ exicution
+   5. differ function argument evluated in statment order /normal order
+   6. use case like finelly keyword for clinup resourcess
+
+**/
+
+func main() {
+
+	//process()
+	process2(10)
+}
+
+func process() {
+	defer fmt.Println("1st differ process")
+	defer fmt.Println("2nd differ process")
+	fmt.Println("3rd differ process")
+	defer fmt.Println("4th differ process")
+	fmt.Println("normal exicution process")
+}
+
+func process2(i int) {
+	defer fmt.Println("1st differ process", i)
+	defer fmt.Println("2nd differ process", i)
+	fmt.Println("3rd differ process", i)
+	i++
+	defer fmt.Println("4th differ process", i)
+	fmt.Println("normal exicution process")
+}
