@@ -7,70 +7,70 @@ import (
 func main() {
 	//slices is dynamic sized arrya
 
-	// var slice1 []int
-	// var slice2 []int = []int{1, 2, 3, 4, 5}
+	var slice1 []int
+	var slice2 []int = []int{1, 2, 3, 4, 5}
 
-	// slice3 := []int{10, 15, 5, 7, 6}
+	slice3 := []int{10, 15, 5, 7, 6}
 
-	// fmt.Println(slice1, slice2, len(slice3), cap(slice3))
+	fmt.Println(slice1, slice2, len(slice3), cap(slice3))
 
-	// a := [5]int{1, 2, 3, 4, 5}
+	a := [5]int{1, 2, 3, 4, 5}
 
-	// slice4 := a[1:4]
+	slice4 := a[1:4]
 
-	// slice5 := append(slice4, 4, 8, 9)
-	// var s []int=[]int{1,7,9};
+	slice5 := append(slice4, 4, 8, 9)
+	var s []int=[]int{1,7,9};
 
-	// fmt.Print(slice4, slice5,s)
+	fmt.Print(slice4, slice5,s)
 
 	//make slise from array
-	// arr := [4]int{1, 2, 3, 4}
-	// fmt.Println(arr)
-	// sliceFromArr := arr[0:4]
-	// fmt.Println(sliceFromArr)
+	arr := [4]int{1, 2, 3, 4}
+	fmt.Println(arr)
+	sliceFromArr := arr[0:4]
+	fmt.Println(sliceFromArr)
 
-	//we can make fixed size slice using mack()
+	//we can make fixed size slice using make()
 
-	// 	slice := make([]int, 4)
-	// 	fmt.Println(len(slice))
-	// 	slice = []int{1, 8, 9, 6, 9, 9, 9, 9}
-	// 	fmt.Println(len(slice))
-	// 	slice = append(slice, 1, 2, 3, 4, 8, 9)
-	// 	fmt.Println(slice)
+		slice := make([]int, 4)
+		fmt.Println(len(slice))
+		slice = []int{1, 8, 9, 6, 9, 9, 9, 9}
+		fmt.Println(len(slice))
+		slice = append(slice, 1, 2, 3, 4, 8, 9)
+		fmt.Println(slice)
 
-	// 	slice2 := make([]int, len(slice))
-	// 	copy(slice2, slice)
-	// 	slice2 = append(slice2, 100, 200)
-	// 	fmt.Println(slice2)
+		// slice2 := make([]int, len(slice))
+		// copy(slice2, slice)
+		// slice2 = append(slice2, 100, 200)
+		// fmt.Println(slice2)
 	
-	// 	//nill slice it have null data
-	// 	// var nillSlice []int
+		//nill slice it have null data
+		// var nillSlice []int
 
-	//   matrix:=[][]int{{1,2,3},{4,5,6},{7,8,9}}
-	//   for i:=0;i<len(matrix);i++{
-	// 	fmt.Println()
-	// 	for j:=0;j<len(matrix[0]);j++{
-	//       fmt.Print(matrix[i][j]," ");
-	// 	}
-	//   }
-	//   fmt.Println(matrix)
-	//   fmt.Println()
-	//   fmt.Println(len(matrix), len(matrix[0]))
-
-	matrix := make([][]int, 3)
-	fmt.Println(len(matrix), len(matrix[0]))
-    coll:=3
-	for i := 0; i < len(matrix); i++ {
-
-		matrix[i]=make([]int ,coll)
-		for j := 0; j < coll ; j++ {
-          matrix[i][j]=j+i
+	  matrix:=[][]int{{1,2,3},{4,5,6},{7,8,9}}
+	  for i:=0;i<len(matrix);i++{
+		fmt.Println()
+		for j:=0;j<len(matrix[i]);j++{
+	      fmt.Print(matrix[i][j]," ");
 		}
-	}
+	  }
+	  fmt.Println(matrix)
+	  fmt.Println()
+	  fmt.Println(len(matrix), len(matrix[0]))
+
+	// matrix := make([][]int, 3)
+	// fmt.Println(len(matrix), len(matrix[0]))
+    // coll:=3
+	// for i := 0; i < len(matrix); i++ {
+
+	// 	matrix[i]=make([]int ,coll)
+	// 	for j := 0; j < coll ; j++ {
+    //       matrix[i][j]=j+i
+	// 	}
+	// }
 
 
-	fmt.Println(matrix)
-    //slice 
-	slice01:=matrix[0][0:2]
-	fmt.Println(slice01)
+	// fmt.Println(matrix)
+    // //slice 
+	// slice01:=matrix[0][0:2]
+	// fmt.Println(slice01)
 }

@@ -1,9 +1,0 @@
-package main
-
-func main() {
-	message := "Hellow World How Are Your ?."
-	for i, v := range message {
-		println(i, string(v))
-	}
-
-}
